@@ -21,6 +21,16 @@ services:
     #     networks:
     #         - my-server
 
+    # 关于 nginx 最常见配置的学习
+    nginx:
+        container_name: nginx_server
+        image: nginx:alpine
+        ports:
+            - 8080:80
+        volumes:
+            - ./nginx.conf:/usr/local/etc/nginx/nginx.conf.default
+            - .:/usr/local/Cellar/nginx/1.23.4/html
+
     mysql_server:
         container_name: mysql_server
         image: daocloud.io/library/mysql:8.0.20 # 使用官方镜像
